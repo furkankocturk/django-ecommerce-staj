@@ -6,13 +6,13 @@
     <div class="container">
         <div class="row">
             {# Carousel start #}
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <!-- Carousel indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
 
                 <!-- Carousel items -->
                 <div class="carousel-inner">
@@ -40,62 +40,71 @@
                 </div>
 
                 <!-- Carousel controls -->
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
             {# Carousel end #}
         </div>
 
         <p></p>
+<div class="row">
+    <div class="col-lg-2">
+        <div class="list-group mb-3">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Kategoriler
+            </a>
+            <a href="{% url 'category_detail' 'clothing' %}" class="list-group-item list-group-item-action">Ayakkabı</a>
+            <a href="{% url 'category_detail' 'makeup' %}" class="list-group-item list-group-item-action">Aksesuar & Çanta</a>
+            <a href="{% url 'category_detail' 'shoes' %}" class="list-group-item list-group-item-action">İç Giyim</a>
+            <a href="{% url 'category_detail' 'home-appliances' %}" class="list-group-item list-group-item-action disabled">Lüks</a>
+             <a href="{% url 'category_detail' 'clothing' %}" class="list-group-item list-group-item-action">Kozmetik</a>
+            <a href="{% url 'category_detail' 'makeup' %}" class="list-group-item list-group-item-action">Kişisel Bakım/a>
+            <a href="{% url 'category_detail' 'shoes' %}" class="list-group-item list-group-item-action">Büyük Beden</a>
+            <a href="{% url 'category_detail' 'home-appliances' %}" class="list-group-item list-group-item-action disabled">Saat & Aksesuar</a>
+             <a href="{% url 'category_detail' 'clothing' %}" class="list-group-item list-group-item-action">Elektronik</a>
+            <a href="{% url 'category_detail' 'makeup' %}" class="list-group-item list-group-item-action">Bebek</a>
+            <a href="{% url 'category_detail' 'shoes' %}" class="list-group-item list-group-item-action">Bebek Odası</a>
+             <a href="{% url 'category_detail' 'shoes' %}" class="list-group-item list-group-item-action">Erkek Çocuk</a>
+            <a href="{% url 'category_detail' 'home-appliances' %}" class="list-group-item list-group-item-action disabled">Bebek Bakım</a>
+             <a href="{% url 'category_detail' 'clothing' %}" class="list-group-item list-group-item-action">Oyuncak</a>
+            <a href="{% url 'category_detail' 'makeup' %}" class="list-group-item list-group-item-action">Beslenme Emzirme</a>
+            <a href="{% url 'category_detail' 'shoes' %}" class="list-group-item list-group-item-action">Taşıma & Güvenlik</a>
+        </div>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="list-group mb-4">
-                    <button type="button" class="list-group-item list-group-item-action active">
-                        Kategoriler
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action">Kıyafet</button>
-                    <button type="button" class="list-group-item list-group-item-action">Makyaj</button>
-                    <button type="button" class="list-group-item list-group-item-action">Ayakkabı</button>
-                    <button type="button" class="list-group-item list-group-item-action" disabled>Ev aletleri</button>
-                </div>
-
-                <div class="list-group">
-                    <button type="button" class="list-group-item list-group-item-action active">
-                        Mağazalar
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action">Koton</button>
-                    <button type="button" class="list-group-item list-group-item-action">Pull and Bear</button>
-                    <button type="button" class="list-group-item list-group-item-action">Bershka</button>
-                    <button type="button" class="list-group-item list-group-item-action" disabled>Stradivarius</button>
-                </div>
-            </div>
-            <div class="col-lg-8">
-
-                <div class="row">
-                    {% for shop in shop %}
-                        <div class="col-md-4 mb-4">
-                            <div class="card">
-                                <img class="card-img-top" src="{{ shop.image }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ shop.name }}</h5>
-                                    <p class="card-text">TL{{ shop.price }}</p>
-                                    <a href="#" class="btn btn-primary">Sepete ekle</a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Mağazalar
+            </a>
+            <a href="{% url 'store_detail' 'koton' %}" class="list-group-item list-group-item-action">Koton</a>
+            <a href="{% url 'store_detail' 'pull-and-bear' %}" class="list-group-item list-group-item-action">Pull and Bear</a>
+            <a href="{% url 'store_detail' 'bershka' %}" class="list-group-item list-group-item-action">Bershka</a>
+            <a href="{% url 'store_detail' 'stradivarius' %}" class="list-group-item list-group-item-action disabled">Stradivarius</a>
         </div>
     </div>
 
+    <div class="col-lg-10">
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">TL{{ product.price }}</p>
+                            <a href="#" class="btn btn-primary mt-auto">Sepete ekle</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
     <nav aria-label="Sayfalama">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -104,6 +113,7 @@
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item active" aria-current="page">
                 <span class="page-link">2</span>
+                <li class="page-item active" aria-current="page">
             </li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item">
